@@ -1,0 +1,34 @@
+name: Update Weekly Parsha
+
+on:
+  schedule:
+    - cron: '0 14 * * 4'  # Every Thursday at 2pm UTC (10am ET)
+  workflow_dispatch:       # Allow manual trigger from GitHub UI
+
+jobs:
+  update-parsha:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Fetch latest parsha video and update index.html
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/update_parsha.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet && echo "No changes." || (git commit -m "Update weekly parsha video" && git push)

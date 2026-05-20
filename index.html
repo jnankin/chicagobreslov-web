@@ -253,12 +253,14 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 					
 						
 
-<div><div id="184906004771538801" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div id="hebcal-shabbat" style="color: white"></div>
-<script defer>
-fetch('https://www.hebcal.com/shabbat?cfg=i2&geonameid=4887398&b=18&M=on&lg=he-x-NoNikud&tgt=_top')
+<div><div id="184906004771538801" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml">
+
+	<div id="hebcal-shabbat"></div>
+<script>
+fetch('https://www.hebcal.com/shabbat?cfg=i2&geonameid=4887398&ue=off&b=18&M=on&lg=a&tgt=_top')
   .then(response => response.text())
   .then(data => document.getElementById('hebcal-shabbat').innerHTML = data);
-</script></div>
+</script>
 
 
 
