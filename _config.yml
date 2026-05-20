@@ -1,0 +1,15 @@
+title: Chicago Breslov
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - CLAUDE.md
+  - WEEBLY_MIGRATION.md
+  - scripts
+  - .github
+  - apps
+
+keep_files:
+  - .git
