@@ -68,7 +68,8 @@
 .wsite-product .wsite-product-price a {}
 }</style>
 {% if page.slideshow %}<link rel='stylesheet' type='text/css' href='cdn/editmysite/css/old/slideshow/slideshow.css' />
-{% endif %}
+{% endif %}{% for css in page.extra_css %}<link rel="stylesheet" type="text/css" href="{{ css }}" />
+{% endfor %}
 		<script src='files/templateArtifacts.js'></script>
 <script>
 var STATIC_BASE = '//cdn1.editmysite.com/';
