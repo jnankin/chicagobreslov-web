@@ -50,6 +50,7 @@
 .oh-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -8px rgba(231,180,81,0.85), inset 0 1px 0 rgba(255,255,255,0.5); }
 .oh-btn-ghost { color: #fff !important; border: 1px solid rgba(248,220,147,0.45); background: rgba(255,255,255,0.03); }
 .oh-btn-ghost:hover { border-color: var(--oh-gold-lt); background: rgba(248,220,147,0.1); transform: translateY(-2px); }
+.oh-btn-soldout { color: rgba(255,255,255,0.75) !important; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); cursor: default; }
 .oh-btn-lg { padding: 20px 40px; font-size: 14px; }
 @keyframes oh-btn-shine { 0%, 60% { left: -60%; } 100% { left: 130%; } }
 
