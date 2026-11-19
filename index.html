@@ -328,7 +328,7 @@ jQuery(document).ready(init);
 
     </div>
 
-<!-- Event popup: shows once user scrolls 5% down the page -->
+<!-- Event popup: shows once user scrolls 100px down the page -->
 <style>
   #event-popup-overlay{display:none;position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:100000;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;}
   #event-popup-overlay.open{display:flex;}
@@ -349,10 +349,8 @@ jQuery(document).ready(init);
   var shown = false;
   function onScroll(){
     if (shown) return;
-    var doc = document.documentElement;
-    var scrollable = Math.max(doc.scrollHeight - window.innerHeight, 1);
-    var y = window.pageYOffset || doc.scrollTop;
-    if (y / scrollable >= 0.05) {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y >= 100) {
       shown = true;
       overlay.className = 'open';
       window.removeEventListener('scroll', onScroll);
