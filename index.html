@@ -327,39 +327,3 @@ jQuery(document).ready(init);
 </div>
 
     </div>
-
-<!-- Event popup: shows once user scrolls 100px down the page -->
-<style>
-  #event-popup-overlay{display:none;position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:100000;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;}
-  #event-popup-overlay.open{display:flex;}
-  #event-popup{position:relative;max-width:min(560px,100%);max-height:100%;}
-  #event-popup img{display:block;max-width:100%;max-height:calc(100vh - 32px);width:auto;height:auto;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5);}
-  #event-popup-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;border:none;background:#fff;color:#000;font-size:24px;line-height:36px;text-align:center;cursor:pointer;padding:0;box-shadow:0 2px 8px rgba(0,0,0,.4);}
-  @media (max-width:600px){#event-popup-close{top:6px;right:6px;}}
-</style>
-<div id="event-popup-overlay" role="dialog" aria-modal="true" aria-label="48th Yahrtzeit of Rabbi Tzvi Aryeh Rosenfeld">
-  <div id="event-popup">
-    <button type="button" id="event-popup-close" aria-label="Close">&times;</button>
-    <img src="uploads/1/3/4/0/134003074/rosenfeld-yahrtzeit-48.jpg" alt="Join us for the celebration of the 48th Yahrtzeit of Rabbi Tzvi Aryeh Rosenfeld zt&quot;l, the leading pioneer of Breslov in America. This Motzei Shabbos, 8:30 p.m., 9029 Pottawattami Drive, Skokie. Milchig meal to be served." />
-  </div>
-</div>
-<script>
-(function(){
-  var overlay = document.getElementById('event-popup-overlay');
-  var shown = false;
-  function onScroll(){
-    if (shown) return;
-    var y = window.pageYOffset || document.documentElement.scrollTop;
-    if (y >= 100) {
-      shown = true;
-      overlay.className = 'open';
-      window.removeEventListener('scroll', onScroll);
-    }
-  }
-  function close(){ overlay.className = ''; }
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
-  document.getElementById('event-popup-close').addEventListener('click', close);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' || e.keyCode === 27) close(); });
-  window.addEventListener('scroll', onScroll);
-})();
-</script>
